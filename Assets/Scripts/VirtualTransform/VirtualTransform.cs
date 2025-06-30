@@ -104,7 +104,14 @@ namespace EasyVirtualTransform
             set
             {
                 if (value is Transform || value is VirtualTransform || value == null)
+                {
+                    //making sure the position is adapted to the new loacl space
+                    Vector3 globalPos = Position;
+                    Quaternion globalRot = Rotation;
                     _parent = value;
+                    Position = globalPos;
+                    Rotation = globalRot;
+                }
                 else
                     throw new System.ArgumentException("Parent must be either Transform or VirtualTransform");
             }
