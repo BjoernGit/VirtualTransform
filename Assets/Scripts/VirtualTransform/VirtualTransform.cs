@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace EasyVirtualTransform
@@ -136,6 +137,15 @@ namespace EasyVirtualTransform
             _localPosition = localPosition;
             _localRotation = localRotation;
             _parent = null;
+        }
+
+        public void ShowDebugPose(float size = 1f)
+        {
+            Vector3 position = Position;
+            Quaternion orientation = Rotation;
+            Debug.DrawLine(position, position + orientation * Vector3.forward * size, Color.blue);
+            Debug.DrawLine(position, position + orientation * Vector3.right * size, Color.red);
+            Debug.DrawLine(position, position + orientation * Vector3.up * size, Color.green);
         }
     }
 }
