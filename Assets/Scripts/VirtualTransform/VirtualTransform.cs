@@ -118,6 +118,12 @@ namespace EasyVirtualTransform
             }
         }
 
+        public VirtualTransform()
+        {
+            _localPosition = Vector3.zero;
+            _localRotation = Quaternion.identity;
+        }
+        
         public VirtualTransform(Transform transform)
         {
             _parent = null;
