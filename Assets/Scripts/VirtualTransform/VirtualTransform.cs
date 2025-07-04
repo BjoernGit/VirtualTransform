@@ -139,6 +139,18 @@ namespace EasyVirtualTransform
             _parent = null;
         }
 
+        public void SetPose(Transform targetPose)
+        {
+            Position = targetPose.position;
+            Rotation = targetPose.rotation;
+        }
+
+        public void SetPose(VirtualTransform targetPose)
+        {
+            Position = targetPose.Position;
+            Rotation = targetPose.Rotation;
+        }
+        
         public void ShowDebugPose(float size = 1f)
         {
             Vector3 position = Position;
